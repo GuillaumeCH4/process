@@ -8,12 +8,13 @@ public class ProcessCheck {
 	public static void main(String[] args) throws IOException {
 		//Process[] processList;
 		ArrayList<String> processList = new ArrayList<String>();
-		String processDetail [];
-		int nomP = 0;
+		//String processDetail [];
+		//int nomP = 0;
 		java.lang.Process p;
+		String process = null;
+		Proc proc = new Proc(process);
 		
 		try {
-			String process;
 
 			// getRuntime: Returns the runtime object associated with the current Java application.
 			// Pour windows
@@ -24,17 +25,18 @@ public class ProcessCheck {
 			while ((process = input.readLine()) != null) {
 				System.out.println("Processus : " + process); // <-- Print all Process here line
 												// by line
-				processDetail = process.split(",");
+			/*	processDetail = process.split(",");
 				System.out.println("Nom du processus : " + processDetail[nomP]);
-				//processList[i] = processDetail[nomP];
 				processList.add(processDetail[nomP]);
+				*/
  			}
 			input.close();
 		} catch (Exception err) {
 			err.printStackTrace();
 		}
 		System.out.println("contenu de processList : " + processList);
-		boolean vpnIsRunning = processList.contains("VPN");
+		proc.procIsRunning();
+		/*boolean vpnIsRunning = processList.contains("VPN");
 		if (vpnIsRunning) {
 			System.out.println("le tunnel VPN est actif");
 		}
@@ -44,6 +46,7 @@ public class ProcessCheck {
 			   System.out.println("Creating Process...");
 			   p = Runtime.getRuntime().exec("notepad.exe");
 		}
+		*/
 		
 	}
 }
